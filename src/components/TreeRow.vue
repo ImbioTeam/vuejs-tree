@@ -38,7 +38,7 @@
         v-bind:class="[{'selected': selected}, styles.text.class]"
         :style="selected ? styles.text.active.style : styles.text.style"
         @click.stop="options.events.editableName.state && toggleEvent('editableName', node)" >
-        {{ node.text }}
+        <span v-for="textPart in node.text" :class="textPart.class">{{ textPart.text }}</span>
       </span>
       <span
         v-if="options.addNode.state == true"
